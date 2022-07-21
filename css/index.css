@@ -1,0 +1,30 @@
+:root {
+    --color-primary:#47168F;
+    --color-primary-dark:#3E1580;
+    --color-grey-light-1: #faf9f9;
+    --color-grey-light-2: #f4f2f2;
+    --color-grey-light-3: #f0eeee;
+    --color-grey-light-4: #ccc;
+    --color-grey-dark-1: #333;
+    --color-grey-dark-2: #777;
+    --color-grey-dark-3: #999;
+    --line: 1px solid var(--color-grey-light-2);
+    --shadow-light-1: 0 1.5rem 4.5rem rgba(0,0,0,.1);
+    --shadow-dark-1: 0 2rem 6rem rgba(0,0,0,.3);
+    --shadow-dark-2: 0 2rem 4rem rgba(0,0,0,.2);
+}
+
+*,*::before, *::after {
+    box-sizing: border-box;
+    
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    width: 100vw;
+    font-weight: 400;    
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
