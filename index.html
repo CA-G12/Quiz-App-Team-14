@@ -13,6 +13,7 @@
       href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Prompt:wght@200;300;400;500;600&display=swap"
       rel="stylesheet"
     />    
+    <script src="./js/index.js" defer></script>
 </head>
 <body>
     <div class="container">
@@ -20,14 +21,26 @@
             <img src="./images/galaxylogo.png" alt="Logo">
         </div>
         <div class="main-box">
-            <form class="nickname-form">
-                <input type="text" name="Nickname" placeholder="Nickname" class="nickname-input">
-                <button type="submit" class="btn btn-enter">Enter</button>
+            <div class="nickname-form">
+                <input type="text" name="Nickname" placeholder="Nickname" class="nickname-input" id = "nickname">
+                <button class="btn btn-enter" onclick="start()">Enter</button>
                 <button class="btn btn-enter" onclick="">Scoreboard</button>
-            </form>
-            <a href="#" class="question-container">
+            </div>
+            <a class="question-container" onclick="openhowtoplay()">
                 ?
             </a>
+    </div>
+
+    <div class="howtoplay" id="howtoplay">
+        <div class="x" id="xbutton" onclick="closehowtoplay()">×</div>
+        <h1 class="title">How To Play ?</h1>
+        <ol class="rules">
+            <li class="rules-item">You try answer 10 random questions that test your knowledge.</li>
+            <li class="rules-item">You choose one of four answers that are available to you.</li>
+            <li class="rules-item">Each correct answer gives you a point. In the end, you get your score.</li>
+            <li class="rules-item">All scores are saved within the Scoreboard.</li>
+            <li class="rules-item">Good Luck!</li>
+        </ol>
     </div>
 
 
