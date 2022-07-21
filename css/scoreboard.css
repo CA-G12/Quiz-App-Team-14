@@ -93,21 +93,15 @@ body section:nth-child(2) {
   height: 300px;
   padding: 1rem 0;
 }
+
 body section:nth-child(2)::-webkit-scrollbar {
   width: 10px;
 }
 
-/* Track */
-body section:nth-child(2)::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-/* Handle */
 body section:nth-child(2)::-webkit-scrollbar-thumb {
   background: var(--dark-purple);
 }
 
-/* Handle on hover */
 body section:nth-child(2)::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
@@ -132,4 +126,14 @@ body section:nth-child(2) div span {
   font-size: 1.5rem;
   font-weight: 500;
   z-index: 1;
+}
+
+body section:nth-child(2) p {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5rem;
+  padding: 3rem;
+  border-radius: 10px;
 }
