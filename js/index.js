@@ -7,6 +7,7 @@ function start() {
         alert('Nickname is required.');
     } else {
         localStorage.setItem('user',newUserInputBox.value);
+        quizlink();
     }
 }
 
@@ -16,4 +17,12 @@ function openhowtoplay() {
 
 function closehowtoplay() {
     howtoplaybutton.style.display = "none";
+}
+
+function scoreboardlink() {
+    window.location.href = "../html/scorboard.html";
+}
+
+function quizlink() {
+    window.location.href = "../html/quiz.html";
 }
