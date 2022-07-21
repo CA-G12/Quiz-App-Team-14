@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/quiz.css" />
+  </head>
+  <body>
+    <section class="quiz-app">
+      <div class="header">
+        <h2 class="title">What is in this image?</h2>
+        <a href="#" class="next">Next</a>
+      </div>
+      <div class="question-image">
+        <div class="timer">28</div>
+        <div class="image"><img src="../download.png" alt="" /></div>
+      </div>
+      <div class="answers">
+        <div class="answer checked" data-index="1">Micy Mouse</div>
+        <div class="answer" data-index="2">Tom</div>
+        <div class="answer" data-index="3">Jerry</div>
+        <div class="answer" data-index="4">Narroto</div>
+      </div>
+      <div class="info">
+        <p class="answers-info"><span id="answers-count">5</span> / <span id="questions-count">12</span></p>
+        <p class="nickname">Abdallah</p>
+      </div>
+    </section>
+    <script src="../js/quiz.js"></script>
+  </body>
+</html>
