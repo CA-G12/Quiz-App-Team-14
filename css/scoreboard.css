@@ -1,0 +1,135 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --dark-blue: #47168f;
+  --light-blue: #1368ce;
+  --dark-purple: #3e1580;
+  --light-purple: #8b71b1;
+  --color-box-primary: #fefffe;
+}
+
+body {
+  height: 100vh;
+  background-image: url('../images/background.png'),
+    linear-gradient(to right bottom, var(--dark-blue), var(--light-purple));
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: 'Prompt', sans-serif;
+  position: relative;
+}
+body::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  background-color: rgba(52, 37, 75, 0.5);
+  z-index: -1;
+}
+
+main {
+  padding-top: 1rem;
+}
+
+body section:nth-child(1) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  margin-bottom: 10rem;
+  z-index: 1;
+}
+
+body section:nth-child(1) ul {
+  z-index: 1;
+
+  list-style: none;
+}
+
+body section:nth-child(1) ul i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  height: 1rem;
+  width: 1rem;
+  padding: 1.2rem;
+  margin-bottom: 0.6rem;
+  background-color: var(--color-box-primary);
+}
+
+body section:nth-child(1) h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  width: 20%;
+  padding: 0.5rem 1rem;
+  background-color: var(--color-box-primary);
+  border-radius: 5px;
+  z-index: 1;
+}
+
+body section:nth-child(1) a {
+  text-decoration: none;
+  color: var(--color-box-primary);
+  padding: 1rem;
+  background-color: var(--light-blue);
+  border-radius: 5px;
+  font-weight: 500;
+  z-index: 1;
+}
+
+body section:nth-child(2) {
+  width: 60%;
+  margin: 0 auto;
+  overflow-y: scroll;
+  height: 300px;
+  padding: 1rem 0;
+}
+body section:nth-child(2)::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+body section:nth-child(2)::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+body section:nth-child(2)::-webkit-scrollbar-thumb {
+  background: var(--dark-purple);
+}
+
+/* Handle on hover */
+body section:nth-child(2)::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+body section:nth-child(2) div {
+  display: flex;
+  justify-content: space-between;
+  color: var(--color-box-primary);
+  margin-bottom: 0.5rem;
+  padding: 0.7rem 1rem;
+  border-radius: 5px;
+  z-index: 1;
+  margin-right: 0.7rem;
+}
+
+body section:nth-child(2) div:nth-child(1) {
+  background-color: var(--color-box-primary);
+  color: black;
+}
+
+body section:nth-child(2) div span {
+  font-size: 1.5rem;
+  font-weight: 500;
+  z-index: 1;
+}
