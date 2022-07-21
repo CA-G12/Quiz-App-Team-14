@@ -3,10 +3,6 @@
   margin: 0;
   padding: 0;
   font-family: inherit;
-  /* background-image: linear-gradient(to right bottom, rgb(85, 39, 155), rgb(64, 16, 136)); */
-  /* position: fixed; */
-  /* bottom: 0; */
-  /* width: 100%; */
 }
 
 :root {
@@ -107,9 +103,6 @@ body {
   align-self: center;
 }
 
-.quiz-app .question-image .image .img {
-}
-
 .quiz-app .answers {
   padding: 0 1rem;
   display: grid;
@@ -132,16 +125,7 @@ body {
   background-color: #115bb6;
 }
 
-.quiz-app .answers .answer:nth-of-type(1) {
-  background-color: #1368ce;
-}
-.quiz-app .answers .answer:nth-of-type(2) {
-  background-color: #1368ce;
-}
-.quiz-app .answers .answer:nth-of-type(3) {
-  background-color: #1368ce;
-}
-.quiz-app .answers .answer:nth-of-type(4) {
+.quiz-app .answers .answer {
   background-color: #1368ce;
 }
 

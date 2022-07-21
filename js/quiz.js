@@ -1,23 +1,41 @@
 const answers = document.querySelectorAll(".answers .answer");
 const nextElem = document.querySelector(".next");
 const questionsCount = document.querySelector("#questions-count");
+let timer = document.querySelector(".timer");
+
 let currentUser = "";
-
-if (localStorage.getItem("user")) {
-  currentUser = localStorage.getItem("user");
-}
-
 let questions = [];
-let currentIndex = 2;
+let currentIndex = 1;
 let correctAnswers = 0;
-//
+let counter = 10000;
 
-answers.forEach((answer) => {
-  answer.onclick = () => {
-    answers.forEach((answer) => answer.classList.remove("checked"));
-    answer.classList.add("checked");
-  };
-});
+fetchQuestions();
+
+// newQuestion;
+window.onload = () => {
+  newQuestion();
+  coundDown();
+  if (localStorage.getItem("user")) {
+    currentUser = localStorage.getItem("user");
+    document.querySelector(".nickname").innerHTML = currentUser;
+  }
+
+  answers.forEach((answer) => {
+    answer.onclick = () => {
+      answers.forEach((answer) => answer.classList.remove("checked"));
+      answer.classList.add("checked");
+    };
+  });
+};
+
+nextElem.onclick = () => {
+  if (checkAnswer(currentIndex)) {
+    correctAnswers = correctAnswers + 1;
+  }
+  currentIndex++;
+  counter = 10000;
+  newQuestion();
+};
 
 function fetchQuestions() {
   const request = new XMLHttpRequest();
@@ -27,16 +45,12 @@ function fetchQuestions() {
   request.onreadystatechange = () => {
     if (request.readyState == 4 && request.status === 200) {
       questions = JSON.parse(request.responseText);
-      console.log(request.responseText);
     }
   };
 }
 
-fetchQuestions();
-
 function generateQuestion(id) {
   let question = questions.find((q) => q.id == id);
-
   let questionElem = document.querySelector(".title");
   questionElem.innerHTML = question.question;
 
@@ -49,58 +63,44 @@ function generateQuestion(id) {
     answers[2].innerHTML = question.answer_3;
     answers[3].innerHTML = question.answer_4;
   }
+
+  document.querySelectorAll(".answer").forEach((elem) => elem.classList.remove("checked"));
 }
 
 function checkAnswer(id) {
   let question = questions.find((q) => q.id == id);
-  let correct = false;
-  answers.forEach((answer) => {
-    if (answer.classList.contains("checked")) {
-      let dataIndex = answer.dataset.index;
-      console.log(question);
-      if (dataIndex.toString() == question.correct_answer) {
-        correct = true;
-      }
-    }
-  });
-  return correct;
+  let answerChecked = document.querySelector(".answer.checked");
+  if (answerChecked) {
+    let dataIndex = answerChecked.dataset.index;
+    return dataIndex == question.correct_answer;
+  }
 }
 
-// let counter = 5000;
+function coundDown() {
+  let timer = document.querySelector(".timer");
+  let interval = setInterval(() => {
+    if (counter < 0) {
+      currentIndex += 1;
+      newQuestion(currentIndex);
+      counter = 10000;
+    }
+    timer.innerHTML = counter / 1000;
+    counter -= 1000;
+  }, 1000);
+}
 
-// function next() {
-//   //   generateQuestion(currentIndex);
-//   let timer = document.querySelector(".timer");
-//   let interval = setInterval(() => {
-//     timer.innerHTML = counter / 1000;
-//     counter -= 1000;
-//     if (counter == 0) {
-//       clearInterval(interval);
-//       generateQuestion(currentIndex);
-//       currentIndex += 1;
-//     }
-//   }, 1000);
-// }
-
-let timer = document.querySelector(".timer");
-
-nextElem.onclick = () => {
+function newQuestion() {
   if (currentIndex > questions.length) {
-    nextElem.setAttribute("disabled", "disabled");
     storeData();
     location.href = "scorboard.html";
   } else {
-    if (checkAnswer(currentIndex)) {
-      correctAnswers++;
-    }
-
     generateQuestion(currentIndex);
+
     const answerCountElem = document.querySelector("#answers-count");
     questionsCount.innerHTML = questions.length;
     answerCountElem.innerHTML = currentIndex;
-    currentIndex++;
   }
-};
+}
 
 function storeData() {
   let users = [];

@@ -1,16 +1,6 @@
 [
   {
     "id": 1,
-    "question": "What is the closest galaxy to the Milky Way?",
-    "answer_1": "Backward",
-    "answer_2": "Black Eye",
-    "answer_3": "Andromeda",
-    "answer_4": "Bode's",
-    "correct_answer": 3,
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/NGC_4414_%28NASA-med%29.jpg/800px-NGC_4414_%28NASA-med%29.jpg"
-  },
-  {
-    "id": 2,
     "question": "Which planet is closest to the sun?",
     "answer_1": "Jupiter",
     "answer_2": "Mercury",
@@ -18,6 +8,16 @@
     "answer_4": "Pluto",
     "correct_answer": 2,
     "image_url": "https://exoplanets.nasa.gov/internal_resources/1806"
+  },
+  {
+    "id": 2,
+    "question": "What is the closest galaxy to the Milky Way?",
+    "answer_1": "Backward",
+    "answer_2": "Black Eye",
+    "answer_3": "Andromeda",
+    "answer_4": "Bode's",
+    "correct_answer": 3,
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/NGC_4414_%28NASA-med%29.jpg/800px-NGC_4414_%28NASA-med%29.jpg"
   },
   {
     "id": 3,
@@ -31,13 +31,13 @@
   },
   {
     "id": 4,
-    "question": "What is almost halfway through its 10-billion-year life, will expand to become a red giant and then shrink to become a white dwarf?",
-    "answer_1": "Sirius",
-    "answer_2": "Canopus",
-    "answer_3": "The Sun",
+    "question": "Which planet is usually the furthest form the Sun, but sometimes is not?",
+    "answer_1": "Saturn",
+    "answer_2": "Mars",
+    "answer_3": "Jupiter",
     "answer_4": "Pluto",
-    "correct_answer": 3,
-    "image_url": "https://scitechdaily.com/images/Pair-of-Superdense-Neutron-Stars-Collide-Explosion-Gravitational-Waves.jpg"
+    "correct_answer": 4,
+    "image_url": "https://i.ibb.co/W0hkY6z/2352.jpg"
   },
   {
     "id": 5,
