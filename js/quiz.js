@@ -1,10 +1,16 @@
 const answers = document.querySelectorAll(".answers .answer");
 const nextElem = document.querySelector(".next");
 const questionsCount = document.querySelector("#questions-count");
+let currentUser = "";
+
+if (localStorage.getItem("user")) {
+  currentUser = localStorage.getItem("user");
+}
 
 let questions = [];
-let currentIndex = 1;
+let currentIndex = 2;
 let correctAnswers = 0;
+//
 
 answers.forEach((answer) => {
   answer.onclick = () => {
@@ -60,27 +66,29 @@ function checkAnswer(id) {
   return correct;
 }
 
-let counter = 5000;
+// let counter = 5000;
 
-function next() {
-  //   generateQuestion(currentIndex);
-  let timer = document.querySelector(".timer");
-  let interval = setInterval(() => {
-    timer.innerHTML = counter / 1000;
-    counter -= 1000;
-    if (counter == 0) {
-      clearInterval(interval);
-      generateQuestion(currentIndex);
-      currentIndex += 1;
-    }
-  }, 1000);
-}
+// function next() {
+//   //   generateQuestion(currentIndex);
+//   let timer = document.querySelector(".timer");
+//   let interval = setInterval(() => {
+//     timer.innerHTML = counter / 1000;
+//     counter -= 1000;
+//     if (counter == 0) {
+//       clearInterval(interval);
+//       generateQuestion(currentIndex);
+//       currentIndex += 1;
+//     }
+//   }, 1000);
+// }
 
 let timer = document.querySelector(".timer");
 
 nextElem.onclick = () => {
-  if (currentIndex == questions.length + 1) {
-    answerCountElem.setAttribute("disabled", "disabled");
+  if (currentIndex > questions.length) {
+    nextElem.setAttribute("disabled", "disabled");
+    storeData();
+    location.href = "scorboard.html";
   } else {
     if (checkAnswer(currentIndex)) {
       correctAnswers++;
@@ -93,3 +101,12 @@ nextElem.onclick = () => {
     currentIndex++;
   }
 };
+
+function storeData() {
+  let users = [];
+  if (localStorage.getItem("users")) {
+    users = JSON.parse(localStorage.getItem("users"));
+  }
+  users.push({ name: currentUser, score: correctAnswers });
+  localStorage.setItem("users", JSON.stringify(users));
+}
