@@ -20,9 +20,9 @@ function closehowtoplay() {
 }
 
 function scoreboardlink() {
-    window.location.href = "../html/scorboard.html";
+    window.location.href = "./html/quiz.html";
 }
 
 function quizlink() {
-    window.location.href = "../html/quiz.html";
+    window.location.href = "./html/quiz.html";
 }
