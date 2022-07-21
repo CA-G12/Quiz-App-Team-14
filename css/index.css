@@ -1,6 +1,7 @@
 :root {
     --color-primary:#47168F;
     --color-primary-dark:#3E1580;
+    --color-box-primary: #FEFFFE;
     --color-grey-light-1: #faf9f9;
     --color-grey-light-2: #f4f2f2;
     --color-grey-light-3: #f0eeee;
@@ -12,6 +13,7 @@
     --shadow-light-1: 0 1.5rem 4.5rem rgba(0,0,0,.1);
     --shadow-dark-1: 0 2rem 6rem rgba(0,0,0,.3);
     --shadow-dark-2: 0 2rem 4rem rgba(0,0,0,.2);
+    --shadow-dark-special: rgb(0 0 0 / 25%) 0px -4px inset;
 }
 
 *,*::before, *::after {
@@ -25,6 +27,115 @@ body {
     min-height: 100vh;
     width: 100vw;
     font-weight: 400;    
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Prompt', sans-serif;
     overflow-x: hidden;
+    background-image: url('../images/background.png'), linear-gradient(to right bottom, rgb(85, 39, 155), rgb(64, 16, 136));
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background: rgba(64, 16, 136, 0.2);
+    z-index: -1;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form, input, button,a  {
+    font-family: inherit;
+}
+
+.main-box {
+    background-color: var(--color-box-primary);
+    padding: 50px;
+    border-radius: 5px;
+    margin-top: 20px;
+    z-index: 1;
+}
+
+.nickname-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.nickname-form > *:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.nickname-input {
+    padding: 8px 30px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+    border-radius: 5px;
+    border: 1px solid #333232;
+}
+
+.btn {
+    all: unset;
+    background-color: #333232;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 5px;
+    padding: 8px 30px;
+    box-shadow: var(--shadow-dark-special);
+    transition: all .2s;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: subpixel-antialiased;
+    
+}
+
+.btn:hover {
+    box-shadow: none;
+    transform: translateY(1px);
+    -webkit-transform: translateZ(0) scale(1.0, 1.0);
+    background-color: rgb(45, 45, 45);
+}
+
+.btn-enter {
+    font-size: 20px;
+}
+
+.question-mark {
+    all: unset;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    color: var(--color-primary);
+}
+
+
+.question-container {
+    all: unset;
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: var(--color-box-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: var(--color-primary-dark);
+    box-shadow: var(--shadow-dark-2);
+}
+
+.main-logo {
+    z-index: 1;
 }
