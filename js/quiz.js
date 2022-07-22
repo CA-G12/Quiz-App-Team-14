@@ -16,7 +16,11 @@ let questionImage = document.querySelector(".image img");
 let questionElem = document.querySelector(".title-text");
 const answerstext = document.querySelectorAll(".answers .answer .answer-text");
 
+// Music
+const backgroundmusic = document.getElementById("music");
+
 fetchQuestions();
+startmusic();
 
 window.onload = () => {
   console.log(questions);
@@ -106,6 +110,8 @@ function nextQuestion() {
 
   if (currentIndex >= questions.length) {
     storeData();
+    stopmusic();
+
     location.href = "scorboard.html";
   } else {
     generateQuestion(currentIndex);
@@ -150,4 +156,13 @@ function shuffleArray(arr) {
       return newArr;
     }
   }
+}
+
+function startmusic() {
+  backgroundmusic.play();
+}
+
+function stopmusic() {
+  backgroundmusic.pause();
+  backgroundmusic.currentTime = 0;
 }
