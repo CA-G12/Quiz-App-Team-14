@@ -10,12 +10,11 @@ let currentIndex = 1;
 let correctAnswers = 0;
 let counter = QUESTION_TIME;
 
-// I need them to be global variables for the animation to work. 
+// I need them to be global variables for the animation to work.
 
 let questionImage = document.querySelector(".image img");
 let questionElem = document.querySelector(".title-text");
 const answerstext = document.querySelectorAll(".answers .answer .answer-text");
-
 
 fetchQuestions();
 
@@ -57,7 +56,7 @@ function fetchQuestions() {
 }
 
 function generateQuestion(id) {
-  // Animated variables need to be declared globally to be used in my animations function. 
+  // Animated variables need to be declared globally to be used in my animations function.
 
   let question = questions.find((q) => q.id == id);
   questionElem.innerHTML = question.question;
@@ -109,7 +108,6 @@ function nextQuestion() {
     const answerCountElem = document.querySelector("#answers-count");
     questionsCount.innerHTML = questions.length;
     answerCountElem.innerHTML = currentIndex;
-
   }
 }
 
@@ -132,5 +130,4 @@ function animation() {
     questionElem.classList.remove("animation");
     answerstext.forEach((elem) => elem.classList.remove("animation"));
   }, 800);
-
 }
