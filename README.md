@@ -38,5 +38,5 @@ The user first enters the main page where he can enter his name. He is then take
 ### Team members:
 
 - [Yazeed Salem](https://github.com/ysalem-dev-89)
-- [Abdullah Al-Shawwaf](https://github.com/abdallah-alshawaf)
+- [Abdallah Al-Shawaf](https://github.com/abdallah-alshawaf)
 - [Sara Dhaman](https://github.com/SaraDahman)
