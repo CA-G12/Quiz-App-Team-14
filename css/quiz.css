@@ -91,7 +91,7 @@ body {
   border-radius: 50%;
   position: relative;
   box-shadow: 1px 1px 4px black;
-  background-color:rgb(85, 39, 155);
+  background-color: rgb(85, 39, 155);
   color: white;
 }
 
@@ -116,20 +116,27 @@ body {
   padding: 1em;
   background-color: var(--light-blue);
   border-radius: 5px;
+  border: none;
   font-weight: 500;
   z-index: 1;
   box-shadow: 0px 0px 1px 0px var(--light-blue);
-  transition: .2s all;
+  transition: 0.2s all;
 }
 
-.quiz-app .question-control .next:hover {
+.quiz-app .question-control .next:not([disabled]):hover {
   color: wheat;
   background-color: rgb(85, 39, 155);
 }
 
-.quiz-app .question-control .next:active {
+.quiz-app .question-control .next:not([disabled]):active {
   transform: translateY(2%);
   background-color: rgb(103, 65, 161);
+}
+
+.quiz-app .question-control .next[disabled] {
+  background-color: #ddd;
+  color: black;
+  box-shadow: 0 0 0 0 var(--light-blue);
 }
 
 @media (max-width: 768px) {
@@ -199,7 +206,7 @@ body {
   background-color: #1368ce;
   box-shadow: 1px 2px 4px 4px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  transition: all .2s;
+  transition: all 0.2s;
 }
 
 .quiz-app .answers .answer:not(.checked):hover {
@@ -240,29 +247,28 @@ body {
 }
 
 .animation {
-  animation: appearing-animation-2 .8s ease-in-out;
+  animation: appearing-animation-2 0.8s ease-in-out;
 }
 
 /* Animations */
 
 @keyframes appearing-animation {
   0% {
-  opacity: 0.5;
-  transform: scale(0);
-  } 
+    opacity: 0.5;
+    transform: scale(0);
+  }
   100% {
-  opacity: 1;
-  transform: scale(1);
-
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
 @keyframes appearing-animation-2 {
   0% {
-  opacity: 0;
-  } 
+    opacity: 0;
+  }
   100% {
-  transform: scale(1);
+    transform: scale(1);
   }
 }
 
