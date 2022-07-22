@@ -38,7 +38,9 @@ main {
   padding-top: 1rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
+  height: 100vh;
+  padding-bottom: 6rem;
 }
 
 main section:nth-child(1) {
@@ -46,7 +48,6 @@ main section:nth-child(1) {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  margin-bottom: 10rem;
   width: 100%;
 }
 
@@ -193,8 +194,8 @@ main .message .content p {
 }
 
 main .message .content p:nth-child(3) {
-  font-size: 1.1rem;
-  font-weight: 300;
+  font-size: 1.3rem;
+  font-weight: 400;
   margin-top: 2rem;
 }
 
@@ -239,7 +240,7 @@ main .message .content p:nth-child(3) {
   }
 
   main section:nth-child(2) {
-    height: 450px;
+    height: 350px;
   }
 
   main section:nth-child(2) div span {
