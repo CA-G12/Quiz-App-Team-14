@@ -17,7 +17,7 @@ window.onload = () => {
   coundDown();
   if (localStorage.getItem("user")) {
     currentUser = localStorage.getItem("user");
-    document.querySelector(".nickname").innerHTML = currentUser;
+    document.querySelector(".nickname").innerHTML = `NickName: <span>${currentUser}</span>`;
   }
 
   answers.forEach((answer) => {
