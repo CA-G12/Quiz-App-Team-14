@@ -126,11 +126,13 @@ body {
 .quiz-app .question-control .next:not([disabled]):hover {
   color: wheat;
   background-color: rgb(85, 39, 155);
+  cursor: pointer;
 }
 
 .quiz-app .question-control .next:not([disabled]):active {
   transform: translateY(2%);
   background-color: rgb(103, 65, 161);
+  cursor: pointer;
 }
 
 .quiz-app .question-control .next[disabled] {
