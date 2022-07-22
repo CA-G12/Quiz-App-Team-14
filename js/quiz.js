@@ -111,6 +111,7 @@ function nextQuestion() {
   if (currentIndex >= questions.length) {
     storeData();
     stopmusic();
+    localStorage.setItem("finalScore", correctAnswers);
 
     location.href = "scorboard.html";
   } else {
