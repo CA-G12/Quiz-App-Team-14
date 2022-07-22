@@ -10,6 +10,13 @@ let currentIndex = 1;
 let correctAnswers = 0;
 let counter = QUESTION_TIME;
 
+// I need them to be global variables for the animation to work. 
+
+let questionImage = document.querySelector(".image img");
+let questionElem = document.querySelector(".title-text");
+const answerstext = document.querySelectorAll(".answers .answer .answer-text");
+
+
 fetchQuestions();
 
 window.onload = () => {
@@ -50,18 +57,17 @@ function fetchQuestions() {
 }
 
 function generateQuestion(id) {
-  let question = questions.find((q) => q.id == id);
-  let questionElem = document.querySelector(".title");
-  questionElem.innerHTML = question.question;
+  // Animated variables need to be declared globally to be used in my animations function. 
 
-  let questionImage = document.querySelector(".image img");
+  let question = questions.find((q) => q.id == id);
+  questionElem.innerHTML = question.question;
   questionImage.src = question.image_url;
 
   if (answers) {
-    answers[0].innerHTML = question.answer_1;
-    answers[1].innerHTML = question.answer_2;
-    answers[2].innerHTML = question.answer_3;
-    answers[3].innerHTML = question.answer_4;
+    answerstext[0].innerHTML = question.answer_1;
+    answerstext[1].innerHTML = question.answer_2;
+    answerstext[2].innerHTML = question.answer_3;
+    answerstext[3].innerHTML = question.answer_4;
   }
   document.querySelectorAll(".answer").forEach((elem) => elem.classList.remove("checked"));
 }
@@ -92,6 +98,8 @@ function coundDown() {
 }
 
 function nextQuestion() {
+  animation();
+
   if (currentIndex > questions.length) {
     storeData();
     location.href = "scorboard.html";
@@ -101,6 +109,7 @@ function nextQuestion() {
     const answerCountElem = document.querySelector("#answers-count");
     questionsCount.innerHTML = questions.length;
     answerCountElem.innerHTML = currentIndex;
+
   }
 }
 
@@ -111,4 +120,17 @@ function storeData() {
   }
   users.push({ name: currentUser, score: correctAnswers });
   localStorage.setItem("users", JSON.stringify(users));
+}
+
+function animation() {
+  questionImage.classList.add("animation");
+  questionElem.classList.add("animation");
+  document.querySelectorAll(".answer-text").forEach((elem) => elem.classList.add("animation"));
+
+  setTimeout(() => {
+    questionImage.classList.remove("animation");
+    questionElem.classList.remove("animation");
+    answerstext.forEach((elem) => elem.classList.remove("animation"));
+  }, 800);
+
 }

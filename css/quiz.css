@@ -37,6 +37,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  animation: appearing-animation 1s ease-in-out;
 }
 
 .quiz-app .header {
@@ -89,9 +90,9 @@ body {
   line-height: 12rem;
   border-radius: 50%;
   position: relative;
-  box-shadow: 1px 1px 4px #280f52;
-  background-color: transparent;
-  color: var(--dark-purple);
+  box-shadow: 1px 1px 4px black;
+  background-color:rgb(85, 39, 155);
+  color: white;
 }
 
 .quiz-app .question-control .image {
@@ -118,10 +119,17 @@ body {
   font-weight: 500;
   z-index: 1;
   box-shadow: 0px 0px 1px 0px var(--light-blue);
+  transition: .2s all;
 }
 
 .quiz-app .question-control .next:hover {
-  background-color: #1159b1;
+  color: wheat;
+  background-color: rgb(85, 39, 155);
+}
+
+.quiz-app .question-control .next:active {
+  transform: translateY(2%);
+  background-color: rgb(103, 65, 161);
 }
 
 @media (max-width: 768px) {
@@ -138,9 +146,9 @@ body {
 
   .quiz-app .question-control .timer {
     font-size: 3rem;
-    width: 8rem;
-    height: 8rem;
-    line-height: 8rem;
+    width: 6rem;
+    height: 6rem;
+    line-height: 6rem;
     justify-self: center;
     align-self: center;
   }
@@ -191,6 +199,7 @@ body {
   background-color: #1368ce;
   box-shadow: 1px 2px 4px 4px rgba(0, 0, 0, 0.1);
   cursor: pointer;
+  transition: all .2s;
 }
 
 .quiz-app .answers .answer:not(.checked):hover {
@@ -199,6 +208,10 @@ body {
 
 .quiz-app .answers .answer.checked {
   background-color: #26890c;
+}
+
+.answer:active {
+  transform: translateY(2%);
 }
 
 .quiz-app .info {
@@ -224,6 +237,33 @@ body {
   font-weight: bold;
   color: rgb(245, 245, 138);
   font-size: 2rem;
+}
+
+.animation {
+  animation: appearing-animation-2 .8s ease-in-out;
+}
+
+/* Animations */
+
+@keyframes appearing-animation {
+  0% {
+  opacity: 0.5;
+  transform: scale(0);
+  } 
+  100% {
+  opacity: 1;
+  transform: scale(1);
+
+  }
+}
+
+@keyframes appearing-animation-2 {
+  0% {
+  opacity: 0;
+  } 
+  100% {
+  transform: scale(1);
+  }
 }
 
 /* Increase Fonts in Large Desktop Devices */
