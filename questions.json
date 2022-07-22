@@ -7,7 +7,7 @@
     "answer_3": "Earth",
     "answer_4": "Pluto",
     "correct_answer": 2,
-    "image_url": "https://exoplanets.nasa.gov/internal_resources/1806"
+    "image_url": "https://i.ibb.co/J2QLz5m/2.png"
   },
   {
     "id": 2,
@@ -17,7 +17,7 @@
     "answer_3": "Andromeda",
     "answer_4": "Bode's",
     "correct_answer": 3,
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/NGC_4414_%28NASA-med%29.jpg/800px-NGC_4414_%28NASA-med%29.jpg"
+    "image_url": "https://i.ibb.co/Qbp88Ct/3.png"
   },
   {
     "id": 3,
@@ -27,7 +27,7 @@
     "answer_3": "Weak Force",
     "answer_4": "Electromagnatic Force",
     "correct_answer": 1,
-    "image_url": "https://res.cloudinary.com/dk-find-out/image/upload/q_80,w_1920,f_auto/A-dreamstime_1601578_t5w61h.jpg"
+    "image_url": "https://i.ibb.co/hDTrKWH/4.png"
   },
   {
     "id": 4,
@@ -37,7 +37,7 @@
     "answer_3": "Jupiter",
     "answer_4": "Pluto",
     "correct_answer": 4,
-    "image_url": "https://i.ibb.co/W0hkY6z/2352.jpg"
+    "image_url": "https://i.ibb.co/TrK5s45/1.png"
   },
   {
     "id": 5,
@@ -47,7 +47,7 @@
     "answer_3": "Mars",
     "answer_4": "Neptune",
     "correct_answer": 2,
-    "image_url": "https://cdn.mos.cms.futurecdn.net/VYCgPzXQaCwZ494DZsdPYK.jpg"
+    "image_url": "https://i.ibb.co/BPxgGfS/5.png"
   },
   {
     "id": 6,
@@ -57,7 +57,7 @@
     "answer_3": "Saturn",
     "answer_4": "Mercury",
     "correct_answer": 3,
-    "image_url": "http://www.nasa.gov/sites/default/files/thumbnails/image/edu_planets_large.jpg"
+    "image_url": "https://i.ibb.co/k2CHdJv/6.png"
   },
   {
     "id": 7,
@@ -67,7 +67,7 @@
     "answer_3": "Peculiar",
     "answer_4": "Irregular",
     "correct_answer": 1,
-    "image_url": "https://cdn.mos.cms.futurecdn.net/EPWEJiGpkF63UJsd9ZoSxA-320-80.jpg"
+    "image_url": "https://i.ibb.co/5GrjwTR/7.png"
   },
   {
     "id": 8,
@@ -77,17 +77,17 @@
     "answer_3": "Dog",
     "answer_4": "Cat",
     "correct_answer": 3,
-    "image_url": "https://d1e00ek4ebabms.cloudfront.net/production/a48d4541-99cb-44f4-984b-8291abc3f95a.jpg"
+    "image_url": "https://i.ibb.co/HgyL10S/8.png"
   },
   {
     "id": 9,
-    "question": "Which planet is usually the furthest form the Sun, but sometimes is not?",
-    "answer_1": "Saturn",
-    "answer_2": "Mars",
-    "answer_3": "Jupiter",
-    "answer_4": "Pluto",
+    "question": "When was the first image of a black hole taken?",
+    "answer_1": "2020",
+    "answer_2": "1980",
+    "answer_3": "2018",
+    "answer_4": "2019",
     "correct_answer": 4,
-    "image_url": "https://i.ibb.co/W0hkY6z/2352.jpg"
+    "image_url": "https://i.ibb.co/p43Jpy9/9.png"
   },
   {
     "id": 10,
@@ -97,6 +97,6 @@
     "answer_3": "Mars",
     "answer_4": "Saturn",
     "correct_answer": 1,
-    "image_url": "https://www.universetoday.com/wp-content/uploads/2012/03/Venus_structure-580x539.jpg"
+    "image_url": "https://i.ibb.co/vBtg6QR/10.png"
   }
 ]
