@@ -199,3 +199,70 @@ form, input, button,a  {
 		opacity: 1;
     }
 }
+
+/* Media Queries */
+
+@media screen and (max-width: 1024px) {
+    body {
+        background-position: center;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .rules {
+        margin-right: 10px;
+        margin-left: 10px;
+
+    }
+
+    .rules li:not(:last-child) {
+        margin-bottom: 5px;
+    }
+
+    .question-container {
+        bottom: 2%;
+        right: 3%;
+    }
+
+}
+
+@media screen and (max-width: 480px) {
+    
+    .rules {
+        margin-top: 0;
+        font-size: 18px;
+    }
+
+
+    .howtoplay {
+        width: 90%;
+    }
+
+    .main-box {
+        padding: 20px;
+    }
+
+    .nickname-form {
+        align-items: center;
+    }
+   
+    .nickname-input {
+        width: 80%;
+    }
+
+    .btn-enter {
+        width: 70%;
+    }
+
+    .x {
+        right: 0;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .main-box {
+        padding: 20px;
+    }
+
+
+}
