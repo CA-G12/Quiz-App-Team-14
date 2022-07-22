@@ -14,15 +14,15 @@
 
 body {
   height: 100vh;
-  background-image: url("../images/background.png"),
+  background-image: url('../images/background.png'),
     linear-gradient(to right bottom, var(--dark-blue), var(--light-purple));
   background-size: cover;
   background-repeat: no-repeat;
-  font-family: "Prompt", sans-serif;
+  font-family: 'Prompt', sans-serif;
   position: relative;
 }
 body::before {
-  content: "";
+  content: '';
   position: absolute;
   width: 100%;
   left: 0;
@@ -34,24 +34,27 @@ body::before {
 
 main {
   padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-body section:nth-child(1) {
+main section:nth-child(1) {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
   margin-bottom: 10rem;
-  z-index: 1;
+  width: 100%;
 }
 
-body section:nth-child(1) ul {
+main section:nth-child(1) ul {
   z-index: 1;
 
   list-style: none;
 }
 
-body section:nth-child(1) ul i {
+main section:nth-child(1) ul i {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -64,19 +67,18 @@ body section:nth-child(1) ul i {
   background-color: var(--color-box-primary);
 }
 
-body section:nth-child(1) h1 {
+main section:nth-child(1) h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2.5rem;
-  width: 20%;
-  padding: 0.5rem 1rem;
+  font-size: 1.8rem;
+  padding: 1rem 3rem;
   background-color: var(--color-box-primary);
   border-radius: 5px;
   z-index: 1;
 }
 
-body section:nth-child(1) a {
+main section:nth-child(1) a {
   text-decoration: none;
   color: var(--color-box-primary);
   padding: 1rem;
@@ -86,27 +88,31 @@ body section:nth-child(1) a {
   z-index: 1;
 }
 
-body section:nth-child(2) {
-  width: 60%;
+main section:nth-child(2) {
+  /* display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center; */
+  width: 50%;
   margin: 0 auto;
-  overflow-y: scroll;
-  height: 300px;
+  overflow-x: hidden;
+  height: 250px;
   padding: 1rem 0;
 }
 
-body section:nth-child(2)::-webkit-scrollbar {
+main section:nth-child(2)::-webkit-scrollbar {
   width: 10px;
 }
 
-body section:nth-child(2)::-webkit-scrollbar-thumb {
+main section:nth-child(2)::-webkit-scrollbar-thumb {
   background: var(--dark-purple);
 }
 
-body section:nth-child(2)::-webkit-scrollbar-thumb:hover {
+main section:nth-child(2)::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
 
-body section:nth-child(2) div {
+main section:nth-child(2) div {
   display: flex;
   justify-content: space-between;
   color: var(--color-box-primary);
@@ -115,25 +121,85 @@ body section:nth-child(2) div {
   border-radius: 5px;
   z-index: 1;
   margin-right: 0.7rem;
+  width: 95%;
 }
 
-body section:nth-child(2) div:nth-child(1) {
+main section:nth-child(2) div:nth-child(1) {
   background-color: var(--color-box-primary);
   color: black;
 }
 
-body section:nth-child(2) div span {
-  font-size: 1.5rem;
+main section:nth-child(2) div span {
+  font-size: 1.2rem;
   font-weight: 500;
   z-index: 1;
 }
 
-body section:nth-child(2) p {
-  background-color: white;
+main section:nth-child(2) p {
+  background-color: var(--color-box-primary);
+  opacity: 0.5;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 5rem;
+  font-size: 1.6rem;
   padding: 3rem;
   border-radius: 10px;
+  font-weight: 600;
+  width: 70%;
+  margin: 0 auto;
+}
+
+@media (max-width: 1200px) {
+  html {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 900px) {
+  html {
+    font-size: 10px;
+  }
+
+  main section:nth-child(1) h1 {
+    font-size: 1.6rem;
+  }
+
+  main section:nth-child(2) p {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 7px;
+  }
+  main section:nth-child(1) ul {
+    display: none;
+  }
+  main section:nth-child(1) h1 {
+    padding: 1.5rem 4rem;
+    font-size: 2rem;
+  }
+
+  main section:nth-child(1) a {
+    font-size: 1.3rem;
+  }
+
+  main section:nth-child(2) p {
+    font-size: 2rem;
+  }
+
+  main section:nth-child(2) {
+    height: 100px;
+  }
+
+  main section:nth-child(2) div span {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 375px) {
+  main section:nth-child(2) p {
+    font-size: 1rem;
+  }
 }
