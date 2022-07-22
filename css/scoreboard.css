@@ -14,15 +14,15 @@
 
 body {
   height: 100vh;
-  background-image: url('../images/background.png'),
+  background-image: url("../images/background.png"),
     linear-gradient(to right bottom, var(--dark-blue), var(--light-purple));
   background-size: cover;
   background-repeat: no-repeat;
-  font-family: 'Prompt', sans-serif;
+  font-family: "Prompt", sans-serif;
   position: relative;
 }
 body::before {
-  content: '';
+  content: "";
   position: absolute;
   width: 100%;
   left: 0;
