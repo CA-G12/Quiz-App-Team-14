@@ -6,10 +6,15 @@ let message = document.querySelector('.message');
 let close = document.querySelector('.icon');
 let paragraphs = document.querySelectorAll('.message .content p');
 
+// Music
+const cheeringsound = document.getElementById("cheering");
+const failsound = document.getElementById("fail");
+
 close.addEventListener('click', closeMessage);
 
 if (finalScore !== null) {
   container.style.display = 'none';
+  playmusic();
   if (finalScore >= 5) {
     paragraphs[0].textContent = `Your score is ${finalScore}/10 👍🏼`;
     paragraphs[1].textContent = `Good Job`;
@@ -50,4 +55,12 @@ function showScores() {
 function closeMessage() {
   message.style.display = 'none';
   showScores();
+}
+
+function playmusic() {
+  if (finalScore >= 5) {
+    cheeringsound.play();
+  } else {
+    failsound.play();
+  }
 }
