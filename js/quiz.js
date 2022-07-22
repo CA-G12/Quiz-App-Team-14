@@ -2,18 +2,18 @@ const answers = document.querySelectorAll(".answers .answer");
 const nextElem = document.querySelector(".next");
 const questionsCount = document.querySelector("#questions-count");
 let timer = document.querySelector(".timer");
+const QUESTION_TIME = 20000;
 
 let currentUser = "";
 let questions = [];
 let currentIndex = 1;
 let correctAnswers = 0;
-let counter = 10000;
+let counter = QUESTION_TIME;
 
 fetchQuestions();
 
-// newQuestion;
 window.onload = () => {
-  newQuestion();
+  nextQuestion();
   coundDown();
   if (localStorage.getItem("user")) {
     currentUser = localStorage.getItem("user");
@@ -33,8 +33,8 @@ nextElem.onclick = () => {
     correctAnswers = correctAnswers + 1;
   }
   currentIndex++;
-  counter = 10000;
-  newQuestion();
+  counter = QUESTION_TIME;
+  nextQuestion();
 };
 
 function fetchQuestions() {
@@ -63,7 +63,6 @@ function generateQuestion(id) {
     answers[2].innerHTML = question.answer_3;
     answers[3].innerHTML = question.answer_4;
   }
-
   document.querySelectorAll(".answer").forEach((elem) => elem.classList.remove("checked"));
 }
 
@@ -80,16 +79,19 @@ function coundDown() {
   let timer = document.querySelector(".timer");
   let interval = setInterval(() => {
     if (counter < 0) {
-      currentIndex += 1;
-      newQuestion(currentIndex);
-      counter = 10000;
+      if (checkAnswer(currentIndex)) {
+        correctAnswers = correctAnswers + 1;
+      }
+      currentIndex++;
+      nextQuestion(currentIndex);
+      counter = QUESTION_TIME;
     }
     timer.innerHTML = counter / 1000;
     counter -= 1000;
   }, 1000);
 }
 
-function newQuestion() {
+function nextQuestion() {
   if (currentIndex > questions.length) {
     storeData();
     location.href = "scorboard.html";
