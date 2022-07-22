@@ -6,33 +6,37 @@ const QUESTION_TIME = 20000;
 
 let currentUser = "";
 let questions = [];
-let currentIndex = 1;
+let currentIndex = 0;
 let correctAnswers = 0;
 let counter = QUESTION_TIME;
 
-// I need them to be global variables for the animation to work. 
+// I need them to be global variables for the animation to work.
 
 let questionImage = document.querySelector(".image img");
 let questionElem = document.querySelector(".title-text");
 const answerstext = document.querySelectorAll(".answers .answer .answer-text");
 
-
 fetchQuestions();
 
 window.onload = () => {
-  nextQuestion();
-  coundDown();
-  if (localStorage.getItem("user")) {
-    currentUser = localStorage.getItem("user");
-    document.querySelector(".nickname").innerHTML = `NickName: <span>${currentUser}</span>`;
-  }
+  console.log(questions);
+  if (questions.length > 0) {
+    questions = shuffleArray(questions);
+    nextQuestion();
+    coundDown();
+    if (localStorage.getItem("user")) {
+      currentUser = localStorage.getItem("user");
+      document.querySelector(".nickname").innerHTML = `NickName: <span>${currentUser}</span>`;
+    }
 
-  answers.forEach((answer) => {
-    answer.onclick = () => {
-      answers.forEach((answer) => answer.classList.remove("checked"));
-      answer.classList.add("checked");
-    };
-  });
+    answers.forEach((answer) => {
+      answer.onclick = () => {
+        answers.forEach((answer) => answer.classList.remove("checked"));
+        answer.classList.add("checked");
+        nextElem.removeAttribute("disabled");
+      };
+    });
+  }
 };
 
 nextElem.onclick = () => {
@@ -57,9 +61,9 @@ function fetchQuestions() {
 }
 
 function generateQuestion(id) {
-  // Animated variables need to be declared globally to be used in my animations function. 
+  // Animated variables need to be declared globally to be used in my animations function.
 
-  let question = questions.find((q) => q.id == id);
+  let question = questions[id];
   questionElem.innerHTML = question.question;
   questionImage.src = question.image_url;
 
@@ -73,7 +77,7 @@ function generateQuestion(id) {
 }
 
 function checkAnswer(id) {
-  let question = questions.find((q) => q.id == id);
+  let question = questions[id];
   let answerChecked = document.querySelector(".answer.checked");
   if (answerChecked) {
     let dataIndex = answerChecked.dataset.index;
@@ -100,7 +104,7 @@ function coundDown() {
 function nextQuestion() {
   animation();
 
-  if (currentIndex > questions.length) {
+  if (currentIndex >= questions.length) {
     storeData();
     location.href = "scorboard.html";
   } else {
@@ -108,8 +112,8 @@ function nextQuestion() {
 
     const answerCountElem = document.querySelector("#answers-count");
     questionsCount.innerHTML = questions.length;
-    answerCountElem.innerHTML = currentIndex;
-
+    answerCountElem.innerHTML = currentIndex + 1;
+    nextElem.setAttribute("disabled", "disabled");
   }
 }
 
@@ -132,5 +136,18 @@ function animation() {
     questionElem.classList.remove("animation");
     answerstext.forEach((elem) => elem.classList.remove("animation"));
   }, 800);
+}
 
+function shuffleArray(arr) {
+  let newArr = [];
+  while (true) {
+    let rand = Math.floor(Math.random() * arr.length);
+    if (!newArr.includes(arr[rand])) {
+      newArr.push(arr[rand]);
+    }
+
+    if (newArr.length == arr.length) {
+      return newArr;
+    }
+  }
 }
