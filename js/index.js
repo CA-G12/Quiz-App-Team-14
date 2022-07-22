@@ -2,6 +2,10 @@ let newUserInputBox = document.getElementById("nickname");
 let howtoplaybutton = document.getElementById("howtoplay");
 let xbutton = document.getElementById("xbutton");
 
+newUserInputBox.onkeydown = (e) => {
+  if (e.key === "Enter") start();
+};
+
 function start() {
   if (!newUserInputBox.value) {
     alert("Nickname is required.");
