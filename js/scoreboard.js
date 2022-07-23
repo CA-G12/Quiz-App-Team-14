@@ -5,16 +5,22 @@ let container = document.querySelector('.scores');
 let message = document.querySelector('.message');
 let close = document.querySelector('.icon');
 let paragraphs = document.querySelectorAll('.message .content p');
+let messageContent = document.getElementById('messageDiv');
 
 // Music
 const cheeringsound = document.getElementById('cheering');
 const failsound = document.getElementById('fail');
+
+// Animations
+
 
 close.addEventListener('click', closeMessage);
 
 if (finalScore !== null) {
   container.style.display = 'none';
   playmusic();
+  animationMain();
+  animationMessage();
   if (finalScore >= 5) {
     paragraphs[0].textContent = `Your score is ${finalScore}/10  👍🏼`;
     paragraphs[0].style.color = 'green';
@@ -31,6 +37,7 @@ if (finalScore !== null) {
 }
 
 function showScores() {
+  animationMain();
   if (users) {
     users = users.sort((a, b) => b.score - a.score);
     users.forEach((e) => {
@@ -65,4 +72,22 @@ function playmusic() {
   } else {
     failsound.play();
   }
+}
+
+/* Animations */
+
+function animationMessage() {
+  messageContent.classList.add("animation");
+
+  setTimeout(() => {
+    messageContent.classList.remove("animation");
+  }, 800);
+}
+
+function animationMain() {
+  main.classList.add("animation2");
+
+  setTimeout(() => {
+    main.classList.remove("animation2");
+  }, 400);
 }
