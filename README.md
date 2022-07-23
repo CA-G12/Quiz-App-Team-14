@@ -6,7 +6,7 @@
 
 ## ● Description:
 
-This is a quiz application that let’s provides you with 10 multiple-choice questions about the space and then calculates your score and adds it to the scoresboard.
+This is a quiz application that provides you with 10 multiple-choice questions about the space and then calculates your score and adds it to the scoresboard.
 
 ---
 
