@@ -90,6 +90,17 @@ main section:nth-child(1) a {
   border-radius: 5px;
   font-weight: 500;
   z-index: 1;
+  transition: all .2s;
+}
+
+main section:nth-child(1) a:hover {
+  background-color: #2a75d1;
+  color: white;
+}
+
+main section:nth-child(1) a:active {
+  transform: translateY(2%);
+  background-color: #357cd3;
 }
 
 main section:nth-child(2) {
@@ -185,6 +196,17 @@ main .message .content .icon i {
   color: var(--color-box-primary);
   background-color: var(--light-blue);
   cursor: pointer;
+  transition: all .2s;
+}
+
+main .message .content .icon i:hover {
+  color: wheat;
+  background-color: rgb(85, 39, 155);
+}
+
+main .message .content .icon i:active {
+  transform: translateY(2%);
+  background-color: rgb(103, 65, 161);
 }
 
 main .message .content p {
@@ -198,6 +220,27 @@ main .message .content p:nth-child(3) {
   font-weight: 400;
   margin-top: 2rem;
 }
+
+/* Animations */
+
+@keyframes appearing-animation-2 {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animation {
+  animation: appearing-animation-2 .8s ease-in-out;
+}
+
+.animation2 {
+  animation: appearing-animation-2 .4s ease-in-out;
+}
+
+/* Media Query */
 
 @media (max-width: 1200px) {
   html {
