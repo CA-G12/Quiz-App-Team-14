@@ -1,7 +1,7 @@
-const answers = document.querySelectorAll(".answers .answer");
+const answersElems = document.querySelectorAll(".answers .answer");
 const nextElem = document.querySelector(".next");
-const questionsCount = document.querySelector("#questions-count");
-let timer = document.querySelector(".timer");
+const questionsCountElem = document.querySelector("#questions-count");
+let timerElem = document.querySelector(".timer");
 const QUESTION_TIME = 20000;
 
 let currentUser = "";
@@ -12,18 +12,17 @@ let counter = QUESTION_TIME;
 
 // I need them to be global variables for the animation to work.
 
-let questionImage = document.querySelector(".image img");
+let questionImageElem = document.querySelector(".image img");
 let questionElem = document.querySelector(".title-text");
-const answerstext = document.querySelectorAll(".answers .answer .answer-text");
+const answerTextElems = document.querySelectorAll(".answers .answer .answer-text");
 
 // Music
-const backgroundmusic = document.getElementById("music");
+const backgroundMusicElem = document.getElementById("music");
 
 fetchQuestions();
 startmusic();
 
 window.onload = () => {
-  console.log(questions);
   if (questions.length > 0) {
     questions = shuffleArray(questions);
     nextQuestion();
@@ -33,10 +32,10 @@ window.onload = () => {
       document.querySelector(".nickname").innerHTML = `NickName: <span>${currentUser}</span>`;
     }
 
-    answers.forEach((answer) => {
-      answer.onclick = () => {
-        answers.forEach((answer) => answer.classList.remove("checked"));
-        answer.classList.add("checked");
+    answersElems.forEach((answerElem) => {
+      answerElem.onclick = () => {
+        answersElems.forEach((ele) => ele.classList.remove("checked"));
+        answerElem.classList.add("checked");
         nextElem.removeAttribute("disabled");
       };
     });
@@ -64,34 +63,52 @@ function fetchQuestions() {
   };
 }
 
-function generateQuestion(id) {
-  // Animated variables need to be declared globally to be used in my animations function.
+function nextQuestion() {
+  animation();
 
-  let question = questions[id];
-  questionElem.innerHTML = question.question;
-  questionImage.src = question.image_url;
+  if (currentIndex >= questions.length) {
+    storeResults();
+    stopmusic();
+    localStorage.setItem("finalScore", correctAnswers);
 
-  if (answers) {
-    answerstext[0].innerHTML = question.answer_1;
-    answerstext[1].innerHTML = question.answer_2;
-    answerstext[2].innerHTML = question.answer_3;
-    answerstext[3].innerHTML = question.answer_4;
+    location.href = "scorboard.html";
+  } else {
+    previewQuestionHTML(currentIndex);
+
+    const answerCountElem = document.querySelector("#answers-count");
+    questionsCountElem.innerHTML = questions.length;
+    answerCountElem.innerHTML = currentIndex + 1;
+    nextElem.setAttribute("disabled", "disabled");
   }
-  document.querySelectorAll(".answer").forEach((elem) => elem.classList.remove("checked"));
 }
 
-function checkAnswer(id) {
-  let question = questions[id];
-  let answerChecked = document.querySelector(".answer.checked");
-  if (answerChecked) {
-    let dataIndex = answerChecked.dataset.index;
+function previewQuestionHTML(index) {
+  // Animated variables need to be declared globally to be used in my animations function.
+
+  let question = questions[index];
+  questionElem.innerHTML = question.question;
+  questionImageElem.src = question.image_url;
+
+  if (answersElems) {
+    answerTextElems[0].innerHTML = question.answer_1;
+    answerTextElems[1].innerHTML = question.answer_2;
+    answerTextElems[2].innerHTML = question.answer_3;
+    answerTextElems[3].innerHTML = question.answer_4;
+  }
+  document.querySelectorAll(".answer").forEach((answerElem) => answerElem.classList.remove("checked"));
+}
+
+function checkAnswer(index) {
+  let question = questions[index];
+  let checkedAnswerElem = document.querySelector(".answer.checked .answer-text");
+  if (checkedAnswerElem) {
+    let dataIndex = checkedAnswerElem.dataset.index;
     return dataIndex == question.correct_answer;
   }
 }
 
 function coundDown() {
-  let timer = document.querySelector(".timer");
-  let interval = setInterval(() => {
+  setInterval(() => {
     if (counter < 0) {
       if (checkAnswer(currentIndex)) {
         correctAnswers = correctAnswers + 1;
@@ -100,31 +117,12 @@ function coundDown() {
       nextQuestion(currentIndex);
       counter = QUESTION_TIME;
     }
-    timer.innerHTML = counter / 1000;
+    timerElem.innerHTML = counter / 1000;
     counter -= 1000;
   }, 1000);
 }
 
-function nextQuestion() {
-  animation();
-
-  if (currentIndex >= questions.length) {
-    storeData();
-    stopmusic();
-    localStorage.setItem("finalScore", correctAnswers);
-
-    location.href = "scorboard.html";
-  } else {
-    generateQuestion(currentIndex);
-
-    const answerCountElem = document.querySelector("#answers-count");
-    questionsCount.innerHTML = questions.length;
-    answerCountElem.innerHTML = currentIndex + 1;
-    nextElem.setAttribute("disabled", "disabled");
-  }
-}
-
-function storeData() {
+function storeResults() {
   let users = [];
   if (localStorage.getItem("users")) {
     users = JSON.parse(localStorage.getItem("users"));
@@ -134,15 +132,24 @@ function storeData() {
 }
 
 function animation() {
-  questionImage.classList.add("animation");
+  questionImageElem.classList.add("animation");
   questionElem.classList.add("animation");
   document.querySelectorAll(".answer-text").forEach((elem) => elem.classList.add("animation"));
 
   setTimeout(() => {
-    questionImage.classList.remove("animation");
+    questionImageElem.classList.remove("animation");
     questionElem.classList.remove("animation");
-    answerstext.forEach((elem) => elem.classList.remove("animation"));
+    answerTextElems.forEach((elem) => elem.classList.remove("animation"));
   }, 800);
+}
+
+function startmusic() {
+  backgroundMusicElem.play();
+}
+
+function stopmusic() {
+  backgroundMusicElem.pause();
+  backgroundMusicElem.currentTime = 0;
 }
 
 function shuffleArray(arr) {
@@ -157,13 +164,4 @@ function shuffleArray(arr) {
       return newArr;
     }
   }
-}
-
-function startmusic() {
-  backgroundmusic.play();
-}
-
-function stopmusic() {
-  backgroundmusic.pause();
-  backgroundmusic.currentTime = 0;
 }
