@@ -23,7 +23,7 @@ This is a quiz application that provides you with 10 multiple-choice questions a
 
 ## ● User Journey:
 
-The user first enters the main page where he can enter his name. He is then taken to a questions page where he starts answering questions with a time limit of 30 seconds. Afterwards, the user gets his score and his name gets added to the scoresboard.
+The user first enters the main page where he can enter his name. He is then taken to a questions page where he starts answering questions with a time limit of 20 seconds. Afterwards, the user gets his score and his name gets added to the scoresboard.
 
 ---
 
