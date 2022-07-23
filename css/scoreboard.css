@@ -38,8 +38,8 @@ main {
   padding-top: 1rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  height: 100vh;
+  justify-content: space-between;
+  height: 90vh;
   padding-bottom: 6rem;
 }
 
@@ -269,7 +269,7 @@ main .message .content p:nth-child(3) {
   }
 
   main .message .content {
-    width: 60%;
+    width: 65%;
   }
 
   main .message .content .icon i {
